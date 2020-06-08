@@ -3,7 +3,10 @@
 #
 # ImageName: openshift/origin-keepalived-ipfailover
 #
-FROM openshift/origin-base
+#FROM openshift/origin-base
+FROM brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift/ose-base
+ 
+COPY *.repo /etc/yum.repos.d/
 
 RUN INSTALL_PKGS="kmod keepalived iproute psmisc nmap-ncat net-tools ipset ipset-libs" && \
     yum install -y $INSTALL_PKGS && \
